@@ -1,0 +1,25 @@
+@import "../base/global";
+
+section{
+    --sec-pad-y: 5rem;
+    &:not(.no-pad-b):not(.pad-b){
+        min-height: calc(100vh - var(--nav-height) - var(--footer-height));
+    }   
+    padding: var(--sec-pad-y) 0;
+
+    @include res-max-laptop-m{
+        --sec-pad-y: 3.2rem;
+    }
+
+    @include res-max-laptop-s{
+        --sec-pad-y: 2.4rem;
+    }
+
+    &.no-pad-b{
+        padding-bottom: 0;
+    }
+
+    &.pad-b{
+        padding-bottom: var(--sec-pad-y);
+    }
+}

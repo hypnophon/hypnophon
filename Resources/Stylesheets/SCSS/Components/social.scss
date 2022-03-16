@@ -1,0 +1,42 @@
+@import "../base/global";
+
+.social{
+    --social-gap: #{ $gap-l};
+    @include flex-set(def, row, wrap, var(--social-gap), center, flex-start, center);
+    position: fixed;
+    z-index: 999;
+
+    @include res-max-mobile-l{
+        --social-gap: 1rem;
+    }
+
+    &__link{
+        --social-link-bg-color: #{$color-primary};
+        --item-size: #{$gap-xxl}; 
+        --shadow-alpha: .3;
+        @include transition(transform);
+        position: relative;
+        display: block;  
+        width: var(--item-size);
+        aspect-ratio: 1 / 1;
+        background-color: var(--social-link-bg-color);
+        text-decoration: none;
+        transition: background-color var(--trans-time) var(--trans-fnc), box-shadow var(--trans-time) var(--trans-fnc);
+        box-shadow: 0 0 $gap-m 0 hsla(0, 0%, 0%, var(--shadow-alpha));
+
+        @include res-max-mobile-l{
+            --item-size: #{$gap-xl}; 
+        }
+
+        &:hover{    
+            --social-link-bg-color: #{$color-primary--hover};
+            --shadow-alpha: .6;
+        }
+        
+        > .icon{
+            --icon-size: #{$gap-l};
+            @include position;
+            fill: $color-white;       
+        }
+    }
+}

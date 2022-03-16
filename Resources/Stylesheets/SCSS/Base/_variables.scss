@@ -1,0 +1,30 @@
+﻿//colors
+$color-black: hsla(0, 0%, 0%, 1);
+$color-black-trans: hsla(0, 0%, 0%, .9);
+$color-font: $color-black;
+$color-white: hsla(0, 0%, 100%, 1);
+$color-trans: hsla(0, 0%, 0%, 0);
+$color-nav: hsla(0, 0%, 100%, .95);
+$color-primary: $color-black;
+$color-primary--hover: lighten($color-black, 15%);
+
+$trans-time: .25s;
+$animate-all: all var($trans-time) ease-in-out;
+$gap-m: .8rem;
+$gap-s: ($gap-m / 2);
+$gap-l: ($gap-m * 2);
+$gap-xl: ($gap-m * 3);
+$gap-xxl: ($gap-m * 4);
+$font-text: 'Open Sans', sans-serif;
+$font-title: 'gramophone';
+
+$width-mobile-s: 320px;
+$width-mobile-m: 375px;
+$width-mobile-l: 425px;
+$width-tablet: 768px;
+$width-laptop-s: 1024px;
+$width-laptop-m: 1366px;
+$width-laptop-l: 1440px;
+$width-laptop-xl: 1920px;
+$width-4k: 2560px;
+$height-4k: 2160px;

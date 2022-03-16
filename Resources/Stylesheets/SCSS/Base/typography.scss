@@ -1,0 +1,111 @@
+@import "../Base/global";
+
+h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, strong, .button {
+    font-family: $font-title;
+    font-weight: 100;
+    font-style: normal;
+}
+
+p, span, small{
+    font-family: $font-text;
+    *{
+        font-weight: inherit;
+    }
+}
+
+.title{
+    --title-font-size: 3.2em;
+    --title-color: #{$color-font};
+    --title-mg-bottom: #{$gap-l}; 
+    @include flex-set;
+    margin-bottom: var(--title-mg-bottom);
+    font-family: $font-title;
+    font-size: var(--title-font-size);
+    color: var(--title-color);
+
+    @include res-max-laptop-l{
+        --title-font-size: 2.4em;
+        --title-mg-bottom: #{$gap-m}; 
+    }
+
+    @include res-max-laptop-s{
+        --title-font-size: 2em;
+    }
+
+    &--s{
+        --title-font-size: 2.4em;
+        --title-mg-bottom: #{$gap-m}; 
+
+        @include res-max-laptop-l{
+            --title-font-size: 2em;
+            --title-mg-bottom: #{$gap-m}; 
+        }
+
+        @include res-max-laptop-s{
+            --title-font-size: 1.6em;
+            --title-mg-bottom: #{$gap-s}; 
+        }
+    }
+
+    &--xs{
+        --title-font-size: 2em;
+        --title-mg-bottom: #{$gap-m}; 
+
+        @include res-max-laptop-l{
+            --title-font-size: 1.8em;     
+        }
+
+        @include res-max-laptop-s{
+            --title-font-size: 1.6em;
+            --title-mg-bottom: #{$gap-s}; 
+        }
+    }
+}
+
+.desc{
+    --desc-font-size: x-large;
+    --desc-mg-bottom: #{$gap-xxl};
+    margin-bottom: var(--desc-mg-bottom);
+    font-family:  $font-text;
+    font-size: var(--desc-font-size);
+    line-height: 1.7;
+    color: $color-font;
+     
+    @include res-max-laptop-l{
+        --desc-mg-bottom: #{$gap-xl};
+    }
+
+    @include res-max-laptop-m{
+        --desc-font-size: large;
+    }
+
+    @include res-max-mobile-l{
+        --desc-font-size: medium;
+        --desc-mg-bottom: #{$gap-l};
+    }
+
+    &--s{
+
+        @include res-max-laptop-m{
+            --desc-mg-bottom: #{$gap-l};
+        }
+
+        @include res-max-mobile-l{
+            --desc-mg-bottom: #{$gap-m};
+        }
+    }
+
+    ul{
+        > li{
+            font-size: .85em;
+    
+            @include res-max-mobile-l{
+                font-size: 1em;
+            }
+        }
+    }
+}

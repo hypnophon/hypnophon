@@ -1,0 +1,33 @@
+@import "../base/global";
+
+.container {
+    --container-pad-x: #{$gap-xxl};
+    --container-width: 65%;
+    --container-min-width: 1200px;
+    width: var(--container-width);
+    min-width: var(--container-min-width);
+    padding: 0 var(--container-pad-x);
+    margin: 0 auto;
+
+    @include res-max-laptop-l {
+        --container-width: 75%;
+        --container-min-width: 0;
+    }
+
+    @include res-max-laptop-s {
+        --container-width: 85%;  
+    }
+
+    @include res-max-tablet {
+        --container-width: 100%;
+    }
+
+    @include res-max-mobile-l{
+        --container-pad-x: #{$gap-xl};
+    }
+
+    @include res-max-mobile-m{
+        --container-pad-x: #{$gap-l};
+    }
+
+}

@@ -1,0 +1,51 @@
+@import "../base/global";
+
+.button{
+    --btn-color: var(--color-white);
+    --btn-bg-color: var(--color-primary);
+    --btn-border-color: var(--color-white);
+    --btn-padding-x: #{$gap-xl};
+    --btn-padding-y: #{$gap-l};
+    --btn-width: 16rem;
+    --btn-font-size: x-large;
+    --shadow-alpha: .3;
+    @include flex-set(inline, row, nowrap, $gap-m, center, center, center);
+    min-width: var(--btn-width);
+    padding: var(--btn-padding-y) var(--btn-padding-x);
+    background-color: var(--btn-bg-color);
+    border-width: 0;
+    font-family: $font-title;
+    font-size: var(--btn-font-size);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--btn-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color var(--trans-time) var(--trans-fnc), box-shadow var(--trans-time) var(--trans-fnc);
+    cursor: pointer;
+    box-shadow: 0 0 $gap-m 0 hsla(0, 0%, 0%, var(--shadow-alpha));
+
+    @include res-max-laptop-m{
+        --btn-padding-x: #{$gap-l};
+        --btn-padding-y: 1.2rem;
+        --btn-font-size: large;
+        --btn-width: 14.5rem;
+    }
+
+    @include res-max-mobile-l{
+        --btn-font-size: medium;
+        --btn-width: 12rem;
+        --btn-padding-y: .8rem;
+    }
+
+    &:hover{
+        --btn-bg-color: var(--color-primary--hover);
+        --shadow-alpha: .6;
+    }
+
+    > .icon{
+        @include res-max-laptop-s{
+            --icon-size: 1.2rem;
+        }
+    }
+}

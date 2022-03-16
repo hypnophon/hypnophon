@@ -1,0 +1,43 @@
+@import '../base/global';
+
+.grid {
+  --grid-gap: #{$gap-xxl};
+  --align-items: stretch;
+  --col-template: minmax(#{$gap-m}, 5fr) minmax(#{$gap-m}, 8fr);
+  @include grid-columns(
+    def,
+    var(--col-template),
+    var(--grid-gap),
+    var(--align-items)
+  );
+
+  @include res-max-laptop-s {
+    --grid-gap: #{$gap-xl};
+  }
+
+  @include res-max-mobile-l {
+    --col-template: minmax(#{$gap-m}, 1fr);
+    --align-items: flex-start;
+  }
+
+
+  &--invert{
+    --col-template: minmax(#{$gap-m}, 1fr) auto;
+    --align-items: flex-end;
+  }
+  
+  &__image {
+    --img-max-width: #{$width-mobile-m};
+
+    @include res-max-mobile-l {
+      --img-max-width: 150px;
+    }
+
+    amp-img {
+      max-width: var(--img-max-width);
+      @include res-max-mobile-l {
+        margin: 0 auto;
+      }
+    }
+  }
+}

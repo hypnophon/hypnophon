@@ -1,0 +1,17 @@
+@import '../base/global';
+
+footer {
+  position: relative;
+  height: var(--footer-height);
+  padding: 0 $gap-m;
+  background-color: $color-black;
+  font-family: $font-text;
+  color: $color-white;
+  text-align: center;
+
+  > *{
+    @include position;
+    width: 100%;
+    padding: 0 $gap-m;
+  }
+}

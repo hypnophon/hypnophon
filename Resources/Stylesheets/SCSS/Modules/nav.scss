@@ -1,0 +1,131 @@
+@import "../Base/global";
+
+nav{
+    --justify-items: center;
+    @include flex-set(def, row, nowrap, 0, center, var(--justify-items), center); 
+    position: sticky;
+    top: 0;
+    left: 0;
+    left: 0;  
+    width: 100%;
+    height: var(--nav-height);
+    padding: 0 $gap-m;
+    background-color: var(--color-nav);
+    z-index: 9999;
+
+    @include res-max-tablet{
+        --justify-items: space-between;
+    }
+}
+
+.nav{
+    &__menu{
+        --flex-direction: row;
+        --flex-wrap: nowrap;
+        --nav-gap: #{$gap-m};
+        @include flex-set(def, var(--flex-direction), var(--flex-wrap), var(--nav-gap), center, center, center);
+        padding: 0 $gap-m;
+        margin: 0;
+        list-style: none;
+
+        @include res-max-laptop-m{
+            --nav-gap: #{$gap-s};
+        }
+
+        @include res-max-laptop-s{
+            --nav-gap: 0;
+        }
+
+        @include res-max-tablet{
+            --menu-trans-x: 100%;
+            --nav-item-font-size: large;
+            --nav-item-pad-x: #{$gap-m};
+            --flex-direction: column;
+            --flex-wrap: wrap;
+            --nav-gap: #{$gap-l};
+            @include position(100%, auto, var(--menu-trans-x), 0%);
+            right: 0;
+            width: 0;
+            height: calc(100vh - var(--nav-height));
+            padding: 0;
+            background: $color-black-trans;
+            transition: transform $trans-time ease-in-out;
+            overflow: hidden;    
+        }
+
+        &--open{
+            --menu-trans-x: 0%;
+            width: 100%;
+        }
+
+        >li{
+            vertical-align: middle;
+        }
+
+        >li>a{
+            --nav-item-pad-x: #{$gap-l};
+            --nav-item-font-size: xx-large;
+            display: block;
+            padding: 0 var(--nav-item-pad-x);
+            font-family: $font-title;
+            font-size: var(--nav-item-font-size);
+            color: var(--color-text);
+            text-decoration: var(--nav-item-text-decoration);
+            text-transform: uppercase;
+    
+            &:hover{
+                --nav-item-text-decoration: underline;
+            }
+    
+            @include res-max-laptop-m{
+                --nav-item-font-size: x-large;
+            }
+    
+            @include res-max-laptop-s{
+                --nav-item-font-size: large;
+                --nav-item-pad-x: #{$gap-m};
+            }
+
+            @include res-max-tablet{
+                --color-text: #{$color-white};
+            }
+        }
+    }
+
+    &__burger{
+        --burger-display: none;
+        position: relative;
+        display: var(--burger-display);
+        width: 2.5rem;
+        aspect-ratio: 1 / 1;
+        padding: 0;
+        background: none;
+        border-width: 0;
+
+        @include res-max-tablet{
+            --burger-display: block;
+        }
+
+        >.icon{
+            --iucon-size: #{$gap-l};
+            @include position;
+            fill: $color-black;
+        }
+    }
+
+    &__logo{
+        --logo-display: none;
+        display: var(--logo-display);
+        height: 1.8rem;
+            
+        @include res-max-tablet{
+            --logo-display: block;
+        }
+
+        >svg{
+            display: block;
+            width: auto;
+            height: 100%;
+        }
+    }
+}

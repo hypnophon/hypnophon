@@ -1,0 +1,29 @@
+@import "../base/global";
+
+.link{
+    --link-color: currentColor;
+    --link-text-decor: none;
+    --icon-trans-x: 0;
+    @include flex-set(inline, row, nowrap, 1.2rem);
+    font-family: $font-text;
+    font-size: 2rem;
+    color: var(--link-color);
+    text-decoration: var(--link-text-decor);
+    text-transform: uppercase;
+
+    &:hover{
+        --link-color: #{$color-primary};
+        --link-text-decor: underline;
+        --icon-trans-x: #{$gap-s};
+    }
+
+    >span{
+        font-size: 1em;
+        color: currentColor;
+    }
+
+    >.icon{
+        transform: translateX(var(--icon-trans-x));
+        transition: transform $trans-time ease-in-out;
+    }
+}

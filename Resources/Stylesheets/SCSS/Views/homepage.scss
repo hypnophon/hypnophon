@@ -1,0 +1,19 @@
+@import "../base/global";
+
+.home{
+    height: 100%;
+    max-height: 1180px;
+    @include grid-rows(def, minmax($gap-l, 1fr), 0, stretch, center);
+    
+    &__logo{       
+        display: block;
+        width: 100%;
+        max-width: $width-laptop-m;
+        margin: 0 auto;
+        margin-bottom: $gap-xxl;
+    }
+
+    >.container{
+        @include grid-columns(def, minmax($gap-l, 1fr), 0, center, center, center);
+    }
+}
